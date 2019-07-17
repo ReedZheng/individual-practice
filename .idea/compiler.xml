@@ -9,6 +9,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="individual-practice" />
+        <module name="individualpractice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
