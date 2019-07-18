@@ -7,10 +7,26 @@ package practicecourt.offer;
 public class Off009 {
 
     public int minNumberInRotateArray(int[] array) {
-        if (array.length == 0) {
+        int length = array.length;
+        if (length == 0) {
             return 0;
         }
 
-        return -1;
+        int low = 0;
+        int high = length - 1;
+        int mid = low + (high - low) / 2;
+
+        while (low != high) {
+            if (array[mid] > array[high]) {
+                low = mid + 1;
+            } else if (array[mid] == array[high]) {
+                high = high - 1;
+            } else {
+                high = mid;
+            }
+            mid = low + (high - low) / 2;
+        }
+
+        return array[low];
     }
 }
