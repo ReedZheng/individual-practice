@@ -20,8 +20,7 @@ public class ProducerCustomerAwaitSignal {
     private static List<Food> foods = new ArrayList<>();
 
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 0, TimeUnit.SECONDS,
-            new LinkedBlockingQueue<>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         for (int i = 0; i < 3; i++) {
             executor.submit(new Chef(lock, chef, client, foods));
         }

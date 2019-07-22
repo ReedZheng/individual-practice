@@ -41,10 +41,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" +
-                "transactionAddr='" + transactionAddr + '\'' +
-                ", amount=" + amount +
-                ", isSuccess=" + isSuccess +
-                '}';
+        return "Transaction{" + "transactionAddr='" + transactionAddr + '\'' + ", amount=" + amount + ", isSuccess="
+            + isSuccess + '}';
     }
 }

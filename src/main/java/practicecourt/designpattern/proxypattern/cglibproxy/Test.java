@@ -7,7 +7,7 @@ package practicecourt.designpattern.proxypattern.cglibproxy;
 public class Test {
 
     public static void main(String[] args) {
-        Target proxy = (Target) CglibjProxy.getProxy(new Target());
+        Target proxy = (Target)CglibjProxy.getProxy(new Target());
         proxy.method1();
     }
 }

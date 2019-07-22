@@ -55,14 +55,14 @@ public class NioTest2 {
             //对于每一个 SelectionKey，您必须确定发生的是什么 I/O 事件，以及这个事件影响哪些 I/O 对象。
             Iterator it = selectedKeys.iterator();
             while (it.hasNext()) {
-                SelectionKey key = (SelectionKey) it.next();
+                SelectionKey key = (SelectionKey)it.next();
                 //5. 监听新连接。程序执行到这里，我们仅注册了 ServerSocketChannel
                 //并且仅注册它们“接收”事件。为确认这一点
                 //我们对 SelectionKey 调用 readyOps() 方法，并检查发生了什么类型的事件
                 if ((key.readyOps() & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT) {
                     //6. 接收了一个新连接。因为我们知道这个服务器套接字上有一个传入连接在等待
                     //所以可以安全地接受它；也就是说，不用担心 accept() 操作会阻塞
-                    ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
+                    ServerSocketChannel ssc = (ServerSocketChannel)key.channel();
                     SocketChannel sc = ssc.accept();
                     sc.configureBlocking(false);
                     // 7. 讲新连接注册到selector。将新连接的 SocketChannel 配置为非阻塞的
@@ -72,7 +72,7 @@ public class NioTest2 {
                     System.out.println("Got connection from " + sc);
                 } else if ((key.readyOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ) {
                     // Read the data
-                    SocketChannel sc = (SocketChannel) key.channel();
+                    SocketChannel sc = (SocketChannel)key.channel();
                     // Echo data
                     int bytesEchoed = 0;
                     while (true) {

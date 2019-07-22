@@ -14,9 +14,8 @@ public class ProxyFactory implements InvocationHandler {
 
     public OrderOperate getProxy() {
         Class<? extends OrderOperate> aClass = orderOperate.getClass();
-        OrderOperate proxy = (OrderOperate) Proxy.newProxyInstance(
-            aClass.getClassLoader(), aClass.getInterfaces(), this
-        );
+        OrderOperate proxy =
+            (OrderOperate)Proxy.newProxyInstance(aClass.getClassLoader(), aClass.getInterfaces(), this);
         return proxy;
     }
 

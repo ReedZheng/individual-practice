@@ -19,13 +19,12 @@ public class Learn1 {
         list.add(food5);
 
         List<String> filterAndSortedList = list.parallelStream().filter(item -> item.getCalories() > 50)
-                .sorted(Comparator.comparing(Food::getCalories).reversed()).map(item -> item.getName())
-                .collect(Collectors.toList());
+            .sorted(Comparator.comparing(Food::getCalories).reversed()).map(item -> item.getName())
+            .collect(Collectors.toList());
 
         System.out.println(filterAndSortedList);
 
-        Map<String, List<Food>> groupByFoodGroupCode
-                = list.stream().collect(Collectors.groupingBy(Food::getGroupCode));
+        Map<String, List<Food>> groupByFoodGroupCode = list.stream().collect(Collectors.groupingBy(Food::getGroupCode));
         System.out.println(groupByFoodGroupCode);
 
         Stream<Food> stream = list.stream();
@@ -40,11 +39,8 @@ public class Learn1 {
         List<String> strs = new ArrayList();
         strs.add("Hello");
         strs.add("World");
-        List<String> wordList
-                = strs.stream().map(item -> item.split(""))
-                .flatMap(Arrays::stream)
-                .distinct()
-                .collect(Collectors.toList());
+        List<String> wordList =
+            strs.stream().map(item -> item.split("")).flatMap(Arrays::stream).distinct().collect(Collectors.toList());
         System.out.println(wordList);
 
         List<Integer> integerList = new ArrayList<>();
@@ -56,7 +52,6 @@ public class Learn1 {
 
         List<Integer> squareList = integerList.stream().map(item -> item * item).collect(Collectors.toList());
         System.out.println(squareList);
-
 
     }
 }

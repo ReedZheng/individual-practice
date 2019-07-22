@@ -1,7 +1,11 @@
 package practicecourt.offer.basicstruct;
 
-import java.util.Stack;
+import practicecourt.offer.assistant.ExceptionHandler;
 import practicecourt.offer.assistant.TreeNode;
+
+import java.util.Optional;
+import java.util.Stack;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * 二叉树前中后序遍历
@@ -66,7 +70,8 @@ public class BinaryTreeTraversal {
             }
             current = stack.peek();
             if (current.getRight() == null || current.getRight() == lastVisit) {
-                System.out.print(stack.pop().getVal() + " ");
+                TreeNode popNode = stack.pop();
+                System.out.print(popNode.getVal() + " ");
                 lastVisit = current;
                 current = null;
             } else {
@@ -74,5 +79,23 @@ public class BinaryTreeTraversal {
             }
         }
     }
+
+    /**
+     * 层序遍历
+     */
+    public void sequenceTraversal(TreeNode root) throws InterruptedException {
+        LinkedBlockingQueue<TreeNode> queue = new LinkedBlockingQueue<>(16);
+        queue.put(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode takeNode = queue.take();
+            System.out.print(takeNode.getVal() + " ");
+            // 自定义 Consumer 函数接口
+            Optional.ofNullable(takeNode.getLeft()).ifPresent(ExceptionHandler.toConsumer(queue::put));
+            Optional.ofNullable(takeNode.getRight()).ifPresent(ExceptionHandler.toConsumer(queue::put));
+        }
+    }
 }
+
+
 

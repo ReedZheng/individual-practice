@@ -15,8 +15,7 @@ public class JDKDynamicHandler implements InvocationHandler {
     public Consumer getConsumerProxy() {
         Class<? extends Consumer> cls = consumer.getClass();
         // 这里会创建一个代理类，该类继承了Proxy并实现了 和被代理类一样 的接口（这里是Consumer接口）
-        Consumer proxyConsumer
-            = (Consumer) Proxy.newProxyInstance(cls.getClassLoader(), cls.getInterfaces(), this);
+        Consumer proxyConsumer = (Consumer)Proxy.newProxyInstance(cls.getClassLoader(), cls.getInterfaces(), this);
 
         return proxyConsumer;
     }

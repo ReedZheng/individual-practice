@@ -12,7 +12,8 @@ import practicecourt.springlearn.lifecycle.entity.Car;
 @ComponentScan("practicecourt.springlearn")
 public class LifeCycleConfig {
 
-    @Bean(initMethod = "init", destroyMethod = "destroy")
+    @Bean(initMethod = "init",
+          destroyMethod = "destroy")
     public Car car() {
         return new Car();
     }

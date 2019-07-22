@@ -35,11 +35,11 @@ public class EnterpriseOrder implements Order, Cloneable {
     @Override
     public Order cloneOrder() {
         try {
-//            浅复制
-//            return (EnterpriseOrder) super.clone();
+            //            浅复制
+            //            return (EnterpriseOrder) super.clone();
             // 深复制
-            EnterpriseOrder newOne = (EnterpriseOrder) super.clone();
-            newOne.setProduce((Produce) produce.clone());
+            EnterpriseOrder newOne = (EnterpriseOrder)super.clone();
+            newOne.setProduce((Produce)produce.clone());
             return newOne;
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();

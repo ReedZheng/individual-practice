@@ -1,7 +1,5 @@
 package practicecourt.offer;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class Off010Test {

@@ -31,7 +31,7 @@ public class NioTest {
         while (flag != -1) {
             byteBuffer.flip();
             while (byteBuffer.hasRemaining()) {
-                System.out.print((char) byteBuffer.get());
+                System.out.print((char)byteBuffer.get());
             }
             byteBuffer.clear();
             flag = channel.read(byteBuffer);

@@ -1,11 +1,12 @@
 package practicecourt.java8;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @Description:
@@ -23,10 +24,8 @@ public class Learn2 {
         integerList2.add(2);
 
         // flatMap()让一个流中的每个值都变成另一个流
-        List<int[]> collect = integerList1.stream()
-                                          .flatMap(i -> integerList2.stream().map(j -> new int[]{i, j}))
-                                          .filter(item -> item[0] * item[1] % 3 == 0)
-                                          .collect(Collectors.toList());
+        List<int[]> collect = integerList1.stream().flatMap(i -> integerList2.stream().map(j -> new int[] {i, j}))
+            .filter(item -> item[0] * item[1] % 3 == 0).collect(Collectors.toList());
         for (int[] a : collect) {
             System.out.print("(" + a[0] + ", " + a[1] + ") ");
         }
@@ -51,6 +50,19 @@ public class Learn2 {
         long count = integerList1.stream().count();
         Integer count2 = integerList1.stream().map(item -> 1).reduce(0, Integer::sum);
         System.out.println(count + " - " + count2);
+
+        // 函数式接口使用
+        String str = "22";
+        Function<String, String> function = item -> item.equals("1") ? "haha" : "no";
+        System.out.println(function.apply(str));
+
+        Consumer<Integer> consumer = item -> System.out.println("consumer!!" + item);
+        consumer.accept(1);
+
+        Optional.ofNullable(new Integer(100)).ifPresent(consumer);
+
+        Predicate<String> predicate = "yes"::equals;
+        System.out.println(predicate.test("yes"));
 
     }
 }

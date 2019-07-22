@@ -14,8 +14,7 @@ public class ProducerCustomerWaitNotify {
     static List<Food> list = new ArrayList<>(10);
 
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 0, TimeUnit.SECONDS,
-            new LinkedBlockingQueue<>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         executor.submit(new Producer(list));
         executor.submit(new Producer(list));
         executor.submit(new Customer(list));

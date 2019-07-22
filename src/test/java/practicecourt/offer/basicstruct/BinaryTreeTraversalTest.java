@@ -14,7 +14,6 @@ public class BinaryTreeTraversalTest {
     TreeNode node3 = new TreeNode("3", null, node5);
     TreeNode node1 = new TreeNode("1", node2, node3);
 
-
     TreeNode tnode7 = new TreeNode("7", null, null);
     TreeNode tnode6 = new TreeNode("6", null, null);
     TreeNode tnode5 = new TreeNode("5", tnode6, tnode7);
@@ -25,12 +24,14 @@ public class BinaryTreeTraversalTest {
     TreeNode tnode1 = new TreeNode("1", tnode2, tnode8);
 
     @Test
-    public void preTraversal() {
+    public void preTraversal() throws InterruptedException {
         new BinaryTreeTraversal().preTraversal(node1);
         System.out.println("");
         new BinaryTreeTraversal().midTraversal(node1);
         System.out.println("");
         new BinaryTreeTraversal().postTraversal(tnode1);
+        System.out.println("");
+        new BinaryTreeTraversal().sequenceTraversal(tnode1);
         System.out.println("");
     }
 }

@@ -14,7 +14,7 @@ public class WeatherReport implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        Weather weather = (Weather) o;
+        Weather weather = (Weather)o;
         System.out.println("天气状况发生变化（当前：" + weather.getWeatherCondition() + "）");
     }
 }

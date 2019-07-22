@@ -7,8 +7,7 @@ package practicecourt.designpattern.decoratorpattern;
 public class Test {
 
     public static void main(String[] args) {
-        Decorator3 decorator = new Decorator3(
-            new Decorator2(new Decorator1(new ConcreteComponent())));
+        Decorator3 decorator = new Decorator3(new Decorator2(new Decorator1(new ConcreteComponent())));
         decorator.operate();
     }
 }

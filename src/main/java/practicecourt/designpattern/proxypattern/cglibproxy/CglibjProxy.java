@@ -17,8 +17,8 @@ public class CglibjProxy {
         en.setSuperclass(t.getClass());
         en.setCallback(new MethodInterceptor() {
             @Override
-            public Object intercept(Object o, Method method, Object[] objects,
-                MethodProxy methodProxy) throws Throwable {
+            public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy)
+                throws Throwable {
                 System.out.println("方法执行前..");
                 Object obj = methodProxy.invoke(t, objects);
                 System.out.println("方法执行后..");

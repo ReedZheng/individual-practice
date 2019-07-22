@@ -1,10 +1,6 @@
 package practicecourt.concurrent;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -14,8 +10,8 @@ public class ThreadExecutorSample {
 
     public static void main(String[] args) {
 
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MILLISECONDS,
-            new LinkedBlockingQueue<Runnable>(5));
+        ThreadPoolExecutor executor =
+            new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(5));
 
         Command command = new Command();
         Future<Integer> f1 = executor.submit(command);

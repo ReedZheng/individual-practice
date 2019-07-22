@@ -25,7 +25,8 @@ public class Currency {
         this.amountDisplayed = amountDisplayed;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "Currency{" + "type='" + type + '\'' + ", amountDisplayed=" + amountDisplayed + '}';
     }
 }

@@ -10,7 +10,7 @@ public class NioTest3 {
     public static void main(String[] args) {
         System.out.println("客户端启动...");
         System.out.println("当接收到服务器端字符为 \"OK\" 的时候, 客户端将终止\n");
-//        while (true) {
+        //        while (true) {
         Socket socket = null;
         try {
             //创建一个流套接字并将其连接到指定主机上的指定端口号
@@ -21,6 +21,6 @@ public class NioTest3 {
         } finally {
 
         }
-//        }
+        //        }
     }
 }    

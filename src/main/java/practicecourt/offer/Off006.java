@@ -1,8 +1,9 @@
 package practicecourt.offer;
 
+import practicecourt.offer.assistant.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
-import practicecourt.offer.assistant.ListNode;
 
 public class Off006 {
 

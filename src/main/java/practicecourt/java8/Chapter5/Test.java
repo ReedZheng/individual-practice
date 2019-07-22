@@ -39,8 +39,7 @@ public class Test {
         Stream<Transaction> stream = transactions.stream();
         // (1)
         List<Transaction> collect1 = stream.filter(item -> "2011".equals(item.getTransactionDate()))
-                                           .sorted(Comparator.comparing(Transaction::getTransactionAmount))
-                                           .collect(Collectors.toList());
+            .sorted(Comparator.comparing(Transaction::getTransactionAmount)).collect(Collectors.toList());
         System.out.println(collect1);
 
         // (2)
@@ -52,7 +51,7 @@ public class Test {
         stream = transactions.stream();
         List<Traders> collect3 =
             stream.map(item -> item.getTraders()).filter(item -> "Cambridge".equals(item.getCity()))
-                  .sorted(Comparator.comparing(Traders::getName)).collect(Collectors.toList());
+                .sorted(Comparator.comparing(Traders::getName)).collect(Collectors.toList());
         System.out.println(collect3);
 
         // (4)
@@ -71,7 +70,7 @@ public class Test {
         System.out.println("----------------");
         stream = transactions.stream();
         stream.filter(item -> "Cambridge".equals(item.getTraders().getCity())).map(item -> item.getTransactionAmount())
-              .forEach(System.out::println);
+            .forEach(System.out::println);
         System.out.println("----------------");
 
         // (7)
@@ -109,12 +108,14 @@ public class Test {
         // 无限流，用limit进行限制
         Stream.iterate(0, n -> n + 2).limit(10).forEach(System.out::println);
         Stream.iterate(new int[] {1, 1}, t -> new int[] {t[1], t[0] + t[1]}).limit(10).map(item -> item[0])
-              .forEach(i -> System.out.print(i + " "));
+            .forEach(i -> System.out.print(i + " "));
         System.out.println();
         System.out.println("---------------------");
         IntStream.generate(new IntSupplier() {
             int a = 0, b = 1;
-            @Override public int getAsInt() {
+
+            @Override
+            public int getAsInt() {
                 int temp = b;
                 b = a + b;
                 a = temp;

@@ -7,8 +7,7 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 @Configuration
-@ComponentScan({"practicecourt.springlearn.lifecycle.controller",
-    "practicecourt.springlearn.lifecycle.service"})
+@ComponentScan({"practicecourt.springlearn.lifecycle.controller", "practicecourt.springlearn.lifecycle.service"})
 public class AutowiredConfig {
 
 }

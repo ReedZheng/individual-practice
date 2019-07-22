@@ -1,10 +1,11 @@
 package offer;
 
-import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import practicecourt.offer.Off006;
 import practicecourt.offer.assistant.ListNode;
+
+import java.util.List;
 
 @Slf4j
 public class Off006Test {

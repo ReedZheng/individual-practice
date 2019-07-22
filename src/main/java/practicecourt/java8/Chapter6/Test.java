@@ -1,20 +1,9 @@
 package practicecourt.java8.Chapter6;
 
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.mapping;
-import static java.util.stream.Collectors.partitioningBy;
-import static java.util.stream.Collectors.reducing;
-import static java.util.stream.Collectors.summarizingInt;
-import static java.util.stream.Collectors.summingInt;
-import static java.util.stream.Collectors.toSet;
-
-import java.util.ArrayList;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.IntStream;
+
+import static java.util.stream.Collectors.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -30,8 +19,8 @@ public class Test {
         list.add(t4);
 
         // 分组并对每一组进行求和 [单级分组]
-        Map<String, Integer> collect = list.stream().map(item -> item.getAmount()).collect(
-                groupingBy(Currency::getType, summingInt(Currency::getAmountDisplayed)));
+        Map<String, Integer> collect = list.stream().map(item -> item.getAmount())
+            .collect(groupingBy(Currency::getType, summingInt(Currency::getAmountDisplayed)));
         System.out.println(collect);
         System.out.println("--------------------------------");
         // [单级分组，贵与不贵]
@@ -47,26 +36,26 @@ public class Test {
         System.out.println(collect1);
         // [多级分组，先按地址分再按贵不贵分]
         Map<String, Map<String, List<Transaction>>> collect2 =
-                list.stream().collect(groupingBy(Transaction::getTransactionAddr, groupingBy(item -> {
-                    if (item.getAmount().getAmountDisplayed() < 500) {
-                        return "cheap";
-                    } else if (500 <= item.getAmount().getAmountDisplayed()
-                            && item.getAmount().getAmountDisplayed() < 1000) {
-                        return "ok";
-                    } else {
-                        return "expensive";
-                    }
-                })));
+            list.stream().collect(groupingBy(Transaction::getTransactionAddr, groupingBy(item -> {
+                if (item.getAmount().getAmountDisplayed() < 500) {
+                    return "cheap";
+                } else if (500 <= item.getAmount().getAmountDisplayed()
+                    && item.getAmount().getAmountDisplayed() < 1000) {
+                    return "ok";
+                } else {
+                    return "expensive";
+                }
+            })));
         System.out.println(collect2);
 
         System.out.println("--------------------------------");
         // 汇总
         IntSummaryStatistics a =
-                list.stream().map(item -> item.getAmount()).collect(summarizingInt(Currency::getAmountDisplayed));
+            list.stream().map(item -> item.getAmount()).collect(summarizingInt(Currency::getAmountDisplayed));
         System.out.println(a);
         // 使用reducing计算总和
         Integer sum = list.stream().map(item -> item.getAmount())
-                          .collect(reducing(0, Currency::getAmountDisplayed, Integer::sum));
+            .collect(reducing(0, Currency::getAmountDisplayed, Integer::sum));
         System.out.println(sum);
 
         // 连接字符串
@@ -74,15 +63,16 @@ public class Test {
         System.out.println(str);
 
         // groupingBy 和 mapping
-        Map<String, Set<String>> collect3 = list.stream().collect(groupingBy(Transaction::getTransactionAddr, mapping(item -> {
-            if ("DOLLAR".equals(item.getAmount().getType())) {
-                return "DOLLAR";
-            } else if ("HKD".equals(item.getAmount().getType())) {
-                return "HKD";
-            } else {
-                return "RMB";
-            }
-        }, toSet())));
+        Map<String, Set<String>> collect3 =
+            list.stream().collect(groupingBy(Transaction::getTransactionAddr, mapping(item -> {
+                if ("DOLLAR".equals(item.getAmount().getType())) {
+                    return "DOLLAR";
+                } else if ("HKD".equals(item.getAmount().getType())) {
+                    return "HKD";
+                } else {
+                    return "RMB";
+                }
+            }, toSet())));
         System.out.println(collect3);
 
         // 分区
@@ -91,10 +81,8 @@ public class Test {
         System.out.println(collect4.get(true));
 
         // 判断是不是素数
-        boolean b = IntStream.rangeClosed(2, 20)
-                             .noneMatch(i -> 20 % i == 0);
+        boolean b = IntStream.rangeClosed(2, 20).noneMatch(i -> 20 % i == 0);
         System.out.println(b);
-
 
     }
 }

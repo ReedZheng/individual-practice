@@ -25,8 +25,7 @@ public class Computer {
 
     @Override
     public String toString() {
-        return "Computer{" + "mainEngine='" + mainEngine + '\'' + ", displayer='" + displayer + '\''
-            + ", ioEquipment='"
+        return "Computer{" + "mainEngine='" + mainEngine + '\'' + ", displayer='" + displayer + '\'' + ", ioEquipment='"
             + ioEquipment + '\'' + '}';
     }
 

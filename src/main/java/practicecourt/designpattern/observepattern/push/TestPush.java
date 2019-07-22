@@ -1,11 +1,10 @@
 package practicecourt.designpattern.observepattern.push;
 
-import practicecourt.designpattern.observepattern.push.observer.PushObserver1;
 import practicecourt.designpattern.observepattern.push.observer.PushObserver;
+import practicecourt.designpattern.observepattern.push.observer.PushObserver1;
 import practicecourt.designpattern.observepattern.push.observer.PushObserver2;
 import practicecourt.designpattern.observepattern.push.subject.ConcreteSubject;
 import practicecourt.designpattern.observepattern.push.subject.Subject;
-
 
 public class TestPush {
 

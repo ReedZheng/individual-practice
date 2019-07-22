@@ -10,6 +10,6 @@ public class Off012 {
             return 1;
         }
 
-        return (int) Math.pow(2, target - 1);
+        return (int)Math.pow(2, target - 1);
     }
 }
