@@ -32,5 +32,4 @@ public class Off007_Q {
 
         return root;
     }
-
 }

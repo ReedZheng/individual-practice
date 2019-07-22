@@ -1,4 +1,4 @@
-package offer;
+package practicecourt.offer;
 
 import org.junit.Test;
 import practicecourt.offer.Off004;

@@ -10,10 +10,16 @@ public class Off008 {
     Stack<Integer> stack2 = new Stack<Integer>();
 
     public void push(int node) {
-        stack1.add(0, node);
+        stack1.push(node);
     }
 
     public int pop() {
-        return stack1.pop();
+        if (stack2.empty()) {
+            while (!stack1.empty()) {
+                stack2.push(stack1.pop());
+            }
+        }
+
+        return stack2.pop();
     }
 }

@@ -1,8 +1,7 @@
-package offer;
+package practicecourt.offer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import practicecourt.offer.Off003;
 
 @Slf4j
 public class Off003Test {
