@@ -7,9 +7,9 @@ package practicecourt.offer;
  * 兔子繁殖问题
  * 换硬币问题 -- 动态规划。。
  */
-public class Off011_Q {
+public class Off011 {
 
-    public int JumpFloor(int target) {
+    public int jumpFloor(int target) {
         if (target < 2) {
             return target;
         }

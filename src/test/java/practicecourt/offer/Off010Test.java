@@ -6,6 +6,6 @@ public class Off010Test {
 
     @Test
     public void fibonacci() {
-        System.out.println(new Off010().Fibonacci(10));
+        System.out.println(new Off010().fibonacci(10));
     }
 }

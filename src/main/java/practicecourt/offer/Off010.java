@@ -2,7 +2,7 @@ package practicecourt.offer;
 
 public class Off010 {
 
-    public int Fibonacci(int n) {
+    public int fibonacci(int n) {
         int a = 1;
         int b = 1;
         int current = 1;

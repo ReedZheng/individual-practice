@@ -6,7 +6,7 @@ package practicecourt.offer;
  */
 public class Off012 {
 
-    public int JumpFloorII(int target) {
+    public int jumpFloorII(int target) {
         if (target < 2) {
             return 1;
         }

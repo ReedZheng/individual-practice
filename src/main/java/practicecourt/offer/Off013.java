@@ -18,7 +18,7 @@ package practicecourt.offer;
  */
 public class Off013 {
 
-    public int RectCover(int target) {
+    public int rectCover(int target) {
         if (target <= 0) {
             return 0;
         }
