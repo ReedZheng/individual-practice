@@ -25,8 +25,13 @@ public class BinaryTreeTraversalTest {
 
     @Test
     public void preTraversal() throws InterruptedException {
+        System.out.print("二叉树前序遍历非递归：");
         new BinaryTreeTraversal().preTraversal(node1);
         System.out.println("");
+        System.out.print("二叉树前序遍历递归：");
+        new BinaryTreeTraversal().preTraversalUseRecursion(node1);
+        System.out.println("");
+
         new BinaryTreeTraversal().midTraversal(node1);
         System.out.println("");
         new BinaryTreeTraversal().postTraversal(tnode1);

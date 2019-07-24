@@ -95,6 +95,18 @@ public class BinaryTreeTraversal {
             Optional.ofNullable(takeNode.getRight()).ifPresent(ExceptionHandler.toConsumer(queue::put));
         }
     }
+
+
+    // 递归实现
+
+    public void preTraversalUseRecursion(TreeNode root) {
+        if (root != null) {
+            System.out.print(root.getVal() + " ");
+            preTraversalUseRecursion(root.getLeft());
+            preTraversalUseRecursion(root.getRight());
+        }
+    }
+
 }
 
 
