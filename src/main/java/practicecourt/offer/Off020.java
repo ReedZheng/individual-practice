@@ -4,6 +4,7 @@ import practicecourt.offer.assistant.TreeNode;
 
 /**
  * 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
+ * 想的时候不要进入递归，想好第一层就可以，往下每一次都按第一层的方式进行
  */
 public class Off020 {
     public boolean hasSubtree(TreeNode root1, TreeNode root2) {
@@ -34,18 +35,6 @@ public class Off020 {
         } else {
             return false;
         }
-    }
-
-    public boolean has(TreeNode n1, TreeNode n2) {
-        if (n1.getVal().equals(n2.getVal())) {
-            in(n1, n2);
-        }
-        has(n1.getLeft(), n2);
-        has(n1.getRight(), n2);
-    }
-
-    public boolean in(TreeNode n1, TreeNode n2) {
-
     }
 }
 
