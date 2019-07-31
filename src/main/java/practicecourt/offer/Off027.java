@@ -1,5 +1,7 @@
 package practicecourt.offer;
 
+import practicecourt.offer.assistant.TreeNode2;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -9,37 +11,22 @@ import java.util.Stack;
  * (注意: 在返回值的list中，数组长度大的数组靠前)
  * 做法类似二叉树的后序遍历
  */
-class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
-
-    public TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 public class Off027 {
-    TreeNode node5 = new TreeNode(9, null, null);
-    TreeNode node3 = new TreeNode(2, null, null);
-    TreeNode node4 = new TreeNode(7, null, node5);
-    TreeNode node2 = new TreeNode(12, null, null);
-    TreeNode node1 = new TreeNode(5, node3, node4);
-    TreeNode node0 = new TreeNode(10, node1, node2);
+    TreeNode2 node5 = new TreeNode2(9, null, null);
+    TreeNode2 node3 = new TreeNode2(2, null, null);
+    TreeNode2 node4 = new TreeNode2(7, null, node5);
+    TreeNode2 node2 = new TreeNode2(12, null, null);
+    TreeNode2 node1 = new TreeNode2(5, node3, node4);
+    TreeNode2 node0 = new TreeNode2(10, node1, node2);
 
-    public ArrayList<ArrayList<Integer>> findPath(TreeNode root, int target) {
+    public ArrayList<ArrayList<Integer>> findPath(TreeNode2 root, int target) {
         int sum = 0;
-        Stack<TreeNode> stack = new Stack<>();
+        Stack<TreeNode2> stack = new Stack<>();
         ArrayList<Integer> subList = new ArrayList<>();
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
         // 保存拥有右节点的节点，在回溯时就不需要再考虑其右节点。
-        ArrayList<TreeNode> visitedNode = new ArrayList<>();
+        ArrayList<TreeNode2> visitedNode = new ArrayList<>();
 
         if (root == null) {
             return list;
@@ -53,13 +40,13 @@ public class Off027 {
                 root = root.left;
             }
 
-            TreeNode tmp = stack.peek();
+            TreeNode2 tmp = stack.peek();
 
             if (tmp.left == null && tmp.right == null) {
                 if (sum == target) {
                     list.add((ArrayList<Integer>)subList.clone());
                 }
-                TreeNode pop = stack.pop();
+                TreeNode2 pop = stack.pop();
                 sum -= pop.val;
                 subList.remove(new Integer(pop.val));
 
@@ -68,7 +55,7 @@ public class Off027 {
                     root = tmp.right;
                     visitedNode.add(tmp);
                 } else {
-                    TreeNode pop = stack.pop();
+                    TreeNode2 pop = stack.pop();
                     sum -= pop.val;
                     subList.remove(new Integer(pop.val));
                 }
@@ -83,7 +70,7 @@ public class Off027 {
     ArrayList<ArrayList<Integer>> resultList = new ArrayList<>();
     ArrayList<Integer> list = new ArrayList<>();
 
-    public ArrayList<ArrayList<Integer>> findPath2(TreeNode root, int target) {
+    public ArrayList<ArrayList<Integer>> findPath2(TreeNode2 root, int target) {
         if (root == null) {
             return resultList;
         }

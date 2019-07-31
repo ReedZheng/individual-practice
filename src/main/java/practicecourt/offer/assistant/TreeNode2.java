@@ -1,5 +1,14 @@
 package practicecourt.offer.assistant;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString(exclude = {"left", "right"})
 public class TreeNode2 {
 
     public int val;
