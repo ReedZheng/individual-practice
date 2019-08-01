@@ -6,7 +6,7 @@ import java.util.Stack;
 
 /**
  * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。
- * 在二叉树的中序遍历基础上进行操作
+ * 在二叉树的中序遍历基础上，对从栈中弹出的序列进行指针操作，实现双向链表。
  * 牛客上更好的做法：Morris Traversal，将二叉树重构为所有结点只有右子树的一条链
  */
 public class Off029 {
@@ -48,7 +48,7 @@ public class Off029 {
     }
 
     /**
-     * from 牛客
+     * from 牛客，画图
      *
      * @param pRootOfTree
      * @return
@@ -79,7 +79,7 @@ public class Off029 {
     }
 
     /**
-     * Mirror Traversal
+     * Mirror Traversal，参考：https://oychao.github.io/2016/05/13/algorithm/01_morris/
      *
      * @param head
      */

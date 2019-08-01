@@ -25,7 +25,7 @@ public class Off029Test {
 
     @Test
     public void convert() {
-        TreeNode2 head = new Off029().convert(node1);
+        TreeNode2 head = new Off029().convert2(node1);
         TreeNode2 tail = null;
 
         while (head != null) {
