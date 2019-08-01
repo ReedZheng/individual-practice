@@ -8,7 +8,7 @@ import java.util.Stack;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * 二叉树前中后序遍历
+ * 二叉树前中后序遍历，方式：1. 递归；2. 借助栈；3. Morris Traversal，参考 Off029
  */
 public class BinaryTreeTraversal {
 
@@ -96,9 +96,10 @@ public class BinaryTreeTraversal {
         }
     }
 
-
-    // 递归实现
-
+    /**
+     * 递归实现
+     * @param root
+     */
     public void preTraversalUseRecursion(TreeNode root) {
         if (root != null) {
             System.out.print(root.getVal() + " ");

@@ -9,7 +9,6 @@ import java.util.Stack;
  * 在二叉树的中序遍历基础上进行操作
  * 牛客上更好的做法：Morris Traversal，将二叉树重构为所有结点只有右子树的一条链
  */
-
 public class Off029 {
     public TreeNode2 convert(TreeNode2 pRootOfTree) {
         TreeNode2 pre = null, current = null, head = null;
@@ -48,8 +47,12 @@ public class Off029 {
         return head;
     }
 
-    // from 牛客
-
+    /**
+     * from 牛客
+     *
+     * @param pRootOfTree
+     * @return
+     */
     public TreeNode2 convert2(TreeNode2 pRootOfTree) {
         TreeNode2 p = pRootOfTree, pre = null, res = null;
         while (p != null) {
@@ -73,5 +76,40 @@ public class Off029 {
             p = p.right;
         }
         return res;
+    }
+
+    /**
+     * Mirror Traversal
+     *
+     * @param head
+     */
+    public void morris(TreeNode2 head) {
+        if (head == null) {
+            return;
+        }
+
+        TreeNode2 current, pre;
+        current = head;
+
+        while (current != null) {
+            if (current.left == null) {
+                System.out.print(current.val + " ");
+                current = current.right;
+            } else {
+                pre = current.left;
+                while (pre.right != null && pre.right != current) {
+                    pre = pre.right;
+                }
+
+                if (pre.right == null) {
+                    pre.right = current;
+                    current = current.left;
+                } else {
+                    pre.right = null;
+                    System.out.print(current.val + " ");
+                    current = current.right;
+                }
+            }
+        }
     }
 }
