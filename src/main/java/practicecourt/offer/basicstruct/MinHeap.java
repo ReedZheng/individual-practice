@@ -20,6 +20,14 @@ public class MinHeap {
         printHeap();
     }
 
+    public void insert() {
+
+    }
+
+    public void delete() {
+
+    }
+
     private void heapify(int i) {
         int left = getLeft(i);
         int right = getRight(i);

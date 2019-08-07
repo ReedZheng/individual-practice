@@ -12,4 +12,5 @@ public class Off032Test {
         ArrayList<Integer> list = new Off032().getLeastNumbersSolution(arr, 4);
         System.out.println(list);
     }
+
 }
