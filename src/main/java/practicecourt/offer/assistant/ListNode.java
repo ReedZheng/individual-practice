@@ -1,8 +1,11 @@
 package practicecourt.offer.assistant;
 
+import lombok.Data;
+
 /**
  *
  */
+@Data
 public class ListNode {
 
     public Integer val;
