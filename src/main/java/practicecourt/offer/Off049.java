@@ -7,11 +7,30 @@ package practicecourt.offer;
  * 然后可以在礼品箱中任意的挑选礼物,并且不再回到圈中,从他的下一个小朋友开始,继续0...m-1报数....这样下去....
  * 直到剩下最后一个小朋友,可以不用表演,并且拿到牛客名贵的“名侦探柯南”典藏版(名额有限哦!!^_^)。
  * 请你试着想下,哪个小朋友会得到这份礼品呢？(注：小朋友的编号是从0到n-1)
- *
+ * <p>
  * 约瑟夫环
  */
 public class Off049 {
     public int lastRemainingSolution(int n, int m) {
+        Node pre = null;
 
+        for (int i = 0; i < n; i++) {
+            Node node = new Node(i);
+            if (pre != null) {
+                pre = node.pre;
+            }
+            pre = node;
+
+        }
+    }
+}
+
+class Node {
+    public int val;
+    public Node pre;
+    public Node next;
+
+    public Node(int val) {
+        this.val = val;
     }
 }
