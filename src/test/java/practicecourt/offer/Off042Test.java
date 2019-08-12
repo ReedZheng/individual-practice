@@ -17,6 +17,6 @@ public class Off042Test {
 
     @Test
     public void isBalancedSolution() {
-        System.out.println(new Off042().isBalancedSolution(node1));
+        System.out.println(new Off042().isBalancedSolution2(node1));
     }
 }

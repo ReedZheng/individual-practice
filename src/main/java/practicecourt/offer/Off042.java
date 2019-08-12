@@ -9,11 +9,12 @@ import java.util.ArrayList;
  * 定义：平衡二叉查找树，简称平衡二叉树，它具有如下几个性质：
  * 1. 可以是空树。
  * 2. 假如不是空树，任何一个节点的左子树与右子树都是平衡二叉树，并且高度之差的绝对值不超过 1。
- * <p>
+ *
  * 对平衡二叉树的定义有误解。。
+ * 感觉自己的做法是有问题的。。。
  */
 public class Off042 {
-    public boolean isBalancedSolution(TreeNode2 root) {
+    /*public boolean isBalancedSolution(TreeNode2 root) {
         if (root == null) {
             return true;
         }
@@ -55,7 +56,7 @@ public class Off042 {
         if (node.right != null) {
             recordRouteLen(node.right, list, len + 1);
         }
-    }
+    }*/
 
     /**
      * 后序遍历做法，from 牛客
