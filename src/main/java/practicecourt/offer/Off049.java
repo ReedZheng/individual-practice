@@ -14,32 +14,32 @@ public class Off049 {
             return -1;
         }
 
-        Node tmp = null, pre = null;
+        Node current = null, pre = null;
+        Node first = new Node(0);
+        pre = first;
 
         // 构建环
-        for (int i = 0; i < n; i++) {
-            Node node = new Node(i);
-            if (i == 0) {
-                pre = node;
-                tmp = node;
-                continue;
-            }
-            tmp.next = node;
-            tmp = node;
+        for (int i = 1; i < n; i++) {
+            current = new Node(i);
+            pre.next = current;
+            pre = current;
         }
-        if (pre != tmp) {
-            tmp = tmp.next = pre;
+        if (pre != first) {
+            pre.next = first;
         }
 
+        // 开始模拟
         while (n > 1) {
-            for (int i = 0; i < m; i++) {
-                pre = tmp;
-                tmp = tmp.next;
+            // m-1 是因为要删除的人是喊 m-1 那个数的人，比如有 5 人，指定的数是 2，则第一轮游戏喊到 1 的人出列
+            for (int i = 0; i < m - 1; i++) {
+                pre = first;
+                first = first.next;
             }
-            tmp = pre.next = tmp.next;
+            first = pre.next = first.next;
             n--;
         }
-        return tmp.val;
+
+        return first.val;
     }
 }
 
