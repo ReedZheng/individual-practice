@@ -23,7 +23,7 @@ public class Off006Test {
         node3.next = node4;
         node4.next = node5;
 
-        List<Integer> reverse = new Off006().reverse(node1);
+        List<Integer> reverse = new Off006().printListFromTailToHead(node1);
         log.info("链表倒排结果：{}", reverse);
     }
 }

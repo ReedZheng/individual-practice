@@ -1,12 +1,15 @@
 package practicecourt.offer.assistant;
 
+import lombok.ToString;
+
+@ToString(exclude = {"left", "right", "next"})
 public class TreeLinkNode {
     public int val;
     public TreeLinkNode left = null;
     public TreeLinkNode right = null;
     public TreeLinkNode next = null;
 
-    TreeLinkNode(int val) {
+    public TreeLinkNode(int val) {
         this.val = val;
     }
 }

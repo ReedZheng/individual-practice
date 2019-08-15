@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Off006 {
 
-    public List<Integer> reverse(ListNode firstNode) {
+    public List<Integer> printListFromTailToHead(ListNode firstNode) {
         List<Integer> list = new ArrayList<>();
         if (firstNode == null) {
             return list;

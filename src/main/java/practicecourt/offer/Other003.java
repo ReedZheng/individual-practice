@@ -6,9 +6,10 @@ import lombok.extern.slf4j.Slf4j;
  * 从头到尾扫描整个数组中的数字，当扫描到下标为i的数字时， 首先比较这个数字（用m表示）是不是等于下标i，如果是，接着比较下一个数字；
  * 如果不是，则将其与第m个数字比较，若与第m个数字相同，则说明它就是一个重复数字；如果不同，就将其与第m个数字进行交换，也就是把它放到自己应在的位置去。
  * 重复这个过程，直到该位置上的数与下标相同为止。
+ * 不是剑指offer的题
  */
 @Slf4j
-public class Off003 {
+public class Other003 {
 
     public int resolve(int[] arr) {
         if (arr == null || arr.length < 1) {

@@ -10,11 +10,11 @@ public class Off004Test {
 
     @Test
     public void existOrNot() {
-        new Off004().existOrNot(arrs, 2);
+        new Off004().find(arrs, 2);
     }
 
     @Test
     public void find() {
-        new Off004().existOrNot(arrs, 26);
+        new Off004().find(arrs, 26);
     }
 }

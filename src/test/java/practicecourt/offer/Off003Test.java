@@ -14,7 +14,7 @@ public class Off003Test {
     public void resolve() {
 
         for (int[] arr : arrs) {
-            int result = new Off003().resolve(arr);
+            int result = new Other003().resolve(arr);
             if (result != -1) {
                 log.info("找到的重复数字是：{}", result);
             }
@@ -24,7 +24,7 @@ public class Off003Test {
     @Test
     public void duplicate() {
         for (int[] arr : arrs) {
-            new Off003().duplicate(arr, arr.length, new int[1]);
+            new Other003().duplicate(arr, arr.length, new int[1]);
         }
     }
 }

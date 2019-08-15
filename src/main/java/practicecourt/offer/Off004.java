@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Off004 {
 
-    public void existOrNot(int[][] arr, int target) {
+    public void find(int[][] arr, int target) {
         if (arr == null || arr.length == 0 || arr[0].length == 0) {
             return;
         }
