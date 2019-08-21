@@ -19,7 +19,7 @@ public class Off062Test {
 
     @Test
     public void print() throws Exception {
-        ArrayList<ArrayList<Integer>> list = new Off062().print3(node1);
+        ArrayList<ArrayList<Integer>> list = new Off062().print(node1);
 
         for (ArrayList<Integer> innerList : list) {
             for (Integer i : innerList) {
