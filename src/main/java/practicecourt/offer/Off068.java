@@ -11,7 +11,7 @@ package practicecourt.offer;
 public class Off068 {
     public boolean hasPath(char[] matrix, int rows, int cols, char[] str) {
         int mLength = matrix.length;
-        if (mLength <= 0 || str.length <= 0) {
+        if (mLength <= 0 || str.length <= 0 || rows * cols != mLength) {
             return false;
         }
 
