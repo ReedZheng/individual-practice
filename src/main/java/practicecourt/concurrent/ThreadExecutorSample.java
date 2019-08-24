@@ -1,46 +1,37 @@
 package practicecourt.concurrent;
 
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 线程池示例
  */
 public class ThreadExecutorSample {
-
     public static void main(String[] args) {
 
         ThreadPoolExecutor executor =
-            new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(5));
+            new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(200),
+                new ThreadFactoryBuilder().setNameFormat("Thread-Executor-Sample-%d").build(),
+                new ThreadPoolExecutor.AbortPolicy());
 
         Command command = new Command();
-        Future<Integer> f1 = executor.submit(command);
-        Future<Integer> f2 = executor.submit(command);
-
-        try {
-            f1.get();
-            f2.get();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            System.out.println(Experiment.publicVal);
+        for (int i = 0; i < 200; i++) {
+            executor.submit(command);
         }
 
         executor.shutdown();
     }
 }
 
-class Experiment {
-
-    static AtomicInteger publicVal = new AtomicInteger(0);
-}
-
 class Command implements Callable<Integer> {
 
+    @Override
     public Integer call() throws Exception {
-        for (int i = 0; i < 19; i++) {
-            Experiment.publicVal.addAndGet(1);
-        }
-        return null;
+        System.out.println(Thread.currentThread().getName() + " hello world!");
+        return 1;
     }
 }
