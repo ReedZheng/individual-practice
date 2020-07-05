@@ -2,10 +2,8 @@ package practicecourt.offer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import practicecourt.common.TimeCounter;
-import practicecourt.offer.Off005;
+import practicecourt.java8.TimeCounter;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Slf4j

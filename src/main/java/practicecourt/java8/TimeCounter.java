@@ -1,4 +1,4 @@
-package practicecourt.common;
+package practicecourt.java8;
 
 import java.time.Duration;
 import java.time.LocalDate;

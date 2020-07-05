@@ -1,4 +1,4 @@
-package practicecourt.arithmetic;
+package practicecourt.interviewquestion;
 
 /**
  *

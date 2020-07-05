@@ -1,8 +1,7 @@
 package practicecourt.common;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import practicecourt.java8.TimeCounter;
 
 public class TimeCounterTest {
 

@@ -1,4 +1,4 @@
-package practicecourt.common;
+package practicecourt.io;
 
 import java.io.FileInputStream;
 import java.nio.ByteBuffer;
