@@ -13,7 +13,8 @@ public class ProducerCustomerBlockingQueue {
     private static LinkedBlockingQueue<Food> queue = new LinkedBlockingQueue(10);
 
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 3, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 3, 0, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>());
         for (int i = 0; i < 1; i++) {
             executor.submit(new P(queue));
         }

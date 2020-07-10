@@ -1,9 +1,9 @@
 package practicecourt.designpattern.templatepattern.usingabstractclass;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 public abstract class BaseAssembler {
 

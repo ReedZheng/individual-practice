@@ -1,4 +1,4 @@
-package practicecourt.designpattern.nio;
+package practicecourt.io.nio;
 
 import java.net.Socket;
 

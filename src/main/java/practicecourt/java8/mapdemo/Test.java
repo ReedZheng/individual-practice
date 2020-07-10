@@ -1,11 +1,23 @@
-package practicecourt.java8.Chapter6;
+package practicecourt.java8.mapdemo;
 
-import java.util.*;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.partitioningBy;
+import static java.util.stream.Collectors.reducing;
+import static java.util.stream.Collectors.summarizingInt;
+import static java.util.stream.Collectors.summingInt;
+import static java.util.stream.Collectors.toSet;
+
+import java.util.ArrayList;
+import java.util.IntSummaryStatistics;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.IntStream;
 
-import static java.util.stream.Collectors.*;
-
 public class Test {
+
     public static void main(String[] args) {
         Transaction t1 = new Transaction("AM", new Currency("DOLLAR", 1100), true);
         Transaction t2 = new Transaction("HK", new Currency("HKD", 900), false);
@@ -24,15 +36,16 @@ public class Test {
         System.out.println(collect);
         System.out.println("--------------------------------");
         // [单级分组，贵与不贵]
-        Map<String, List<Currency>> collect1 = list.stream().map(item -> item.getAmount()).collect(groupingBy(item -> {
-            if (item.getAmountDisplayed() < 500) {
-                return "cheap";
-            } else if (500 <= item.getAmountDisplayed() && item.getAmountDisplayed() < 1000) {
-                return "ok";
-            } else {
-                return "expensive";
-            }
-        }));
+        Map<String, List<Currency>> collect1 = list.stream().map(item -> item.getAmount())
+            .collect(groupingBy(item -> {
+                if (item.getAmountDisplayed() < 500) {
+                    return "cheap";
+                } else if (500 <= item.getAmountDisplayed() && item.getAmountDisplayed() < 1000) {
+                    return "ok";
+                } else {
+                    return "expensive";
+                }
+            }));
         System.out.println(collect1);
         // [多级分组，先按地址分再按贵不贵分]
         Map<String, Map<String, List<Transaction>>> collect2 =
@@ -51,7 +64,8 @@ public class Test {
         System.out.println("--------------------------------");
         // 汇总
         IntSummaryStatistics a =
-            list.stream().map(item -> item.getAmount()).collect(summarizingInt(Currency::getAmountDisplayed));
+            list.stream().map(item -> item.getAmount())
+                .collect(summarizingInt(Currency::getAmountDisplayed));
         System.out.println(a);
         // 使用reducing计算总和
         Integer sum = list.stream().map(item -> item.getAmount())
@@ -76,7 +90,8 @@ public class Test {
         System.out.println(collect3);
 
         // 分区
-        Map<Boolean, List<Transaction>> collect4 = list.stream().collect(partitioningBy(Transaction::getSuccess));
+        Map<Boolean, List<Transaction>> collect4 = list.stream()
+            .collect(partitioningBy(Transaction::getSuccess));
         System.out.println(collect4);
         System.out.println(collect4.get(true));
 

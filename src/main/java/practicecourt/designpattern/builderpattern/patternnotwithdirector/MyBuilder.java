@@ -9,7 +9,9 @@ public class MyBuilder {
     private MyBuilder() {
     }
 
-    ;
+    public static MyBuilder newInstance() {
+        return new MyBuilder();
+    }
 
     public MyBuilder buildPartA(String param) {
         mainEngine = param;
@@ -32,9 +34,5 @@ public class MyBuilder {
         computer.setIoEquipment(ioEquipment);
         computer.setMainEngine(mainEngine);
         return computer;
-    }
-
-    public static MyBuilder newInstance() {
-        return new MyBuilder();
     }
 }

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  *
  */
-public class CountDownLatchSample {
+public class CountDownLatchDemo {
 
     public static void main(String[] args) {
         CountDownLatch countDownLatch = new CountDownLatch(10);
@@ -37,7 +37,7 @@ class Suborker implements Runnable {
 
     @Override
     public void run() {
-        long sleepTime = (long)(Math.random() * 10000);
+        long sleepTime = (long) (Math.random() * 10000);
         try {
             Thread.sleep(sleepTime);
         } catch (InterruptedException e) {

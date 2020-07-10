@@ -6,8 +6,10 @@ import java.time.LocalDateTime;
 import java.time.temporal.TemporalAdjusters;
 
 public class TimeCounter {
+
     /**
      * toMinutes() 分钟，计算两个时间相差多少分钟
+     *
      * @param startTime
      * @param endTime
      * @return
@@ -19,6 +21,7 @@ public class TimeCounter {
 
     /**
      * 本月的第一天
+     *
      * @return
      */
     public static LocalDate firstDateInMonth() {
@@ -28,6 +31,7 @@ public class TimeCounter {
 
     /**
      * 本月的最后一天
+     *
      * @return
      */
     public static LocalDate lastDateInMonth() {

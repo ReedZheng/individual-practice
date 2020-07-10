@@ -15,6 +15,7 @@ import java.util.Set;
  * @Author: reed
  */
 public class Client {
+
     ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
     ByteBuffer readBuffer = ByteBuffer.allocate(1024);
 
@@ -26,11 +27,11 @@ public class Client {
         SocketChannel sc = SocketChannel.open();
         sc.configureBlocking(false);
         sc.connect(new InetSocketAddress("localhost",
-                8808));
+            8808));
         Selector selector = Selector.open();
         System.out.println(selector);
         sc.register(selector,
-                SelectionKey.OP_CONNECT);
+            SelectionKey.OP_CONNECT);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -45,7 +46,7 @@ public class Client {
                 if (key.isConnectable()) {
                     sc.finishConnect();
                     sc.register(selector,
-                            SelectionKey.OP_WRITE);
+                        SelectionKey.OP_WRITE);
                     System.out.println("server connected...");
                     break;
                 } else if (key.isWritable()) { // 写数据
@@ -57,7 +58,7 @@ public class Client {
                     sc.write(writeBuffer);
 
                     sc.register(selector,
-                            SelectionKey.OP_READ);
+                        SelectionKey.OP_READ);
 
                 } else if (key.isReadable()) { // 读取数据
                     System.out.print("receive message:");
@@ -65,10 +66,10 @@ public class Client {
                     readBuffer.clear();
                     int num = client.read(readBuffer);
                     System.out.println(new String(readBuffer.array(),
-                            0,
-                            num));
+                        0,
+                        num));
                     sc.register(selector,
-                            SelectionKey.OP_WRITE);
+                        SelectionKey.OP_WRITE);
                 }
             }
         }

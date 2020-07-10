@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class FileReader {
+
+    public static void main(String[] args) {
+        new FileReader().rearrange("C:\\Users\\reed.zhang\\Desktop\\CSHPOSC.20190501.txt");
+    }
+
     /**
      * 读取文件（文件内容是sql查询出来的记录）并调整记录的顺序
      */
@@ -26,7 +31,7 @@ public class FileReader {
             while (content != -1) {
                 buffer.flip();
                 while (buffer.hasRemaining()) {
-                    char c = (char)buffer.get();
+                    char c = (char) buffer.get();
                     if (c != '\n') {
                         sb.append(c);
                     } else {
@@ -43,14 +48,10 @@ public class FileReader {
         }
 
         if (list.size() > 0) {
-            list = (ArrayList<String>)list.stream().sorted().collect(Collectors.toList());
+            list = (ArrayList<String>) list.stream().sorted().collect(Collectors.toList());
         }
 
         list.forEach(System.out::println);
 
-    }
-
-    public static void main(String[] args) {
-        new FileReader().rearrange("C:\\Users\\reed.zhang\\Desktop\\CSHPOSC.20190501.txt");
     }
 }

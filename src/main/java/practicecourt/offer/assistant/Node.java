@@ -1,6 +1,7 @@
 package practicecourt.offer.assistant;
 
 public class Node {
+
     public int val;
     public Node next;
 

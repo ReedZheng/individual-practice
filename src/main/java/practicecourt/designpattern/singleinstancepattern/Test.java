@@ -1,11 +1,10 @@
 package practicecourt.designpattern.singleinstancepattern;
 
-import practicecourt.designpattern.singleinstancepattern.doublechecklock.DCLWay;
-import practicecourt.designpattern.singleinstancepattern.staticinnerclass.StaticInnerWay;
-
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import practicecourt.designpattern.singleinstancepattern.doublechecklock.DCLWay;
+import practicecourt.designpattern.singleinstancepattern.staticinnerclass.StaticInnerWay;
 
 /**
  * http://www.importnew.com/18872.html https://blog.csdn.net/mnb65482/article/details/80458571
@@ -28,7 +27,8 @@ public class Test {
 
         System.out.println("---------------------");
 
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 0, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>());
 
         for (int i = 0; i < 10; i++) {
             executor.submit(() -> {

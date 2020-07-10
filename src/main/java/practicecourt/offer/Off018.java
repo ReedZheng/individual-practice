@@ -6,6 +6,7 @@ import practicecourt.offer.assistant.ListNode;
  * 输入一个链表，反转链表后，输出新链表的表头。
  */
 public class Off018 {
+
     public ListNode reverseList(ListNode head) {
         ListNode end, tmp;
 

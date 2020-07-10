@@ -1,10 +1,15 @@
-package practicecourt.java8.Chapter5;
+package practicecourt.java8.streamdemo;
 
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.IntSupplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -15,6 +20,7 @@ import java.util.stream.Stream;
  * @Date: 2018/12/6
  */
 public class Test {
+
     public static void main(String[] args) {
         Traders t1 = new Traders("Raoul", "Cambridge");
         Traders t2 = new Traders("Mario", "Milan");
@@ -39,12 +45,14 @@ public class Test {
         Stream<Transaction> stream = transactions.stream();
         // (1)
         List<Transaction> collect1 = stream.filter(item -> "2011".equals(item.getTransactionDate()))
-            .sorted(Comparator.comparing(Transaction::getTransactionAmount)).collect(Collectors.toList());
+            .sorted(Comparator.comparing(Transaction::getTransactionAmount))
+            .collect(Collectors.toList());
         System.out.println(collect1);
 
         // (2)
         stream = transactions.stream();
-        List<String> collect2 = stream.map(item -> item.getTraders().getCity()).distinct().collect(Collectors.toList());
+        List<String> collect2 = stream.map(item -> item.getTraders().getCity()).distinct()
+            .collect(Collectors.toList());
         System.out.println(collect2);
 
         // (3)
@@ -57,25 +65,29 @@ public class Test {
         // (4)
         stream = transactions.stream();
         String reduce1 =
-            stream.map(item -> item.getTraders().getName()).distinct().sorted().reduce("", (n1, n2) -> n1 + n2);
+            stream.map(item -> item.getTraders().getName()).distinct().sorted()
+                .reduce("", (n1, n2) -> n1 + n2);
         System.out.println(reduce1);
 
         // (5)
         stream = transactions.stream();
         Optional<Traders> any =
-            stream.map(item -> item.getTraders()).filter(item -> "Milan".equals(item.getCity())).findAny();
+            stream.map(item -> item.getTraders()).filter(item -> "Milan".equals(item.getCity()))
+                .findAny();
         any.ifPresent(i -> System.out.println("true"));
 
         // (6)
         System.out.println("----------------");
         stream = transactions.stream();
-        stream.filter(item -> "Cambridge".equals(item.getTraders().getCity())).map(item -> item.getTransactionAmount())
+        stream.filter(item -> "Cambridge".equals(item.getTraders().getCity()))
+            .map(item -> item.getTransactionAmount())
             .forEach(System.out::println);
         System.out.println("----------------");
 
         // (7)
         stream = transactions.stream();
-        Optional<BigDecimal> reduce = stream.map(item -> item.getTransactionAmount()).reduce(BigDecimal::min);
+        Optional<BigDecimal> reduce = stream.map(item -> item.getTransactionAmount())
+            .reduce(BigDecimal::min);
         reduce.ifPresent(System.out::println);
 
         // test
@@ -96,10 +108,11 @@ public class Test {
         stringStream.map(String::toUpperCase).map(item -> item + " ").forEach(System.out::print);
         System.out.println("---------------------");
         // 数组创建流
-        Arrays.stream(new int[] {99, 90, -2, 32, 11, -20, 33}).sorted().forEach(System.out::println);
+        Arrays.stream(new int[]{99, 90, -2, 32, 11, -20, 33}).sorted().forEach(System.out::println);
         System.out.println("---------------------");
         // 由文件生成流
-        try (Stream<String> fileLines = Files.lines(Paths.get("G:\\11.txt"), Charset.defaultCharset())) {
+        try (Stream<String> fileLines = Files
+            .lines(Paths.get("G:\\11.txt"), Charset.defaultCharset())) {
             fileLines.flatMap(item -> Arrays.stream(item.split(" "))).forEach(System.out::println);
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,7 +120,8 @@ public class Test {
 
         // 无限流，用limit进行限制
         Stream.iterate(0, n -> n + 2).limit(10).forEach(System.out::println);
-        Stream.iterate(new int[] {1, 1}, t -> new int[] {t[1], t[0] + t[1]}).limit(10).map(item -> item[0])
+        Stream.iterate(new int[]{1, 1}, t -> new int[]{t[1], t[0] + t[1]}).limit(10)
+            .map(item -> item[0])
             .forEach(i -> System.out.print(i + " "));
         System.out.println();
         System.out.println("---------------------");

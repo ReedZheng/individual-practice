@@ -1,6 +1,7 @@
-package practicecourt.java8.Chapter6;
+package practicecourt.java8.mapdemo;
 
 public class Currency {
+
     private String type;
     private Integer amountDisplayed;
 

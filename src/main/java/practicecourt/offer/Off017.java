@@ -6,6 +6,7 @@ import practicecourt.offer.assistant.ListNode;
  * 输入一个链表，输出该链表中倒数第k个结点。
  */
 public class Off017 {
+
     public ListNode findKthToTail(ListNode head, int k) {
         int length = 0;
         ListNode tmp = head;

@@ -13,11 +13,6 @@ public class IndividualOrder implements Order, Cloneable {
     }
 
     @Override
-    public void setTotalAmount(BigDecimal totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    @Override
     public Produce getProduce() {
         return this.produce;
     }
@@ -33,13 +28,18 @@ public class IndividualOrder implements Order, Cloneable {
     }
 
     @Override
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    @Override
     public Order cloneOrder() {
         try {
             //            浅复制
             //            return (EnterpriseOrder) super.clone();
             // 深复制
-            IndividualOrder newOne = (IndividualOrder)super.clone();
-            newOne.setProduce((Produce)produce.clone());
+            IndividualOrder newOne = (IndividualOrder) super.clone();
+            newOne.setProduce((Produce) produce.clone());
             return newOne;
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();

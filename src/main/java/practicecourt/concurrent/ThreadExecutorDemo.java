@@ -2,19 +2,15 @@ package practicecourt.concurrent;
 
 import java.util.Stack;
 import java.util.concurrent.Callable;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 /**
  * 线程池示例
  */
-public class ThreadExecutorSample {
+public class ThreadExecutorDemo {
+
     public static void main(String[] args) {
 
-        new ThreadExecutorSample().test2();
+        new ThreadExecutorDemo().test2();
 
         // ThreadPoolExecutor executor =
         //     new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(200),
@@ -31,8 +27,8 @@ public class ThreadExecutorSample {
 
     public void test() {
         try {
-            int i=0;
-            for(;;) {
+            int i = 0;
+            for (; ; ) {
                 i = 5 / 0;
             }
         } catch (Exception e) {
@@ -47,8 +43,8 @@ public class ThreadExecutorSample {
         try {
             int i = 0;
             // boolean interrupted = false;
-            for (;;) {
-                if (1==1) {
+            for (; ; ) {
+                if (1 == 1) {
                     return true;
                 }
                 System.out.println("!");

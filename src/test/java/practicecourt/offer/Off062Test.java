@@ -1,13 +1,13 @@
 package practicecourt.offer;
 
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
 import org.junit.Test;
 import practicecourt.offer.assistant.TreeNode2;
 
-import java.util.ArrayList;
-
-import static org.junit.Assert.*;
-
 public class Off062Test {
+
     TreeNode2 node8 = new TreeNode2(7, null, null);
     TreeNode2 node7 = new TreeNode2(5, null, null);
     TreeNode2 node6 = new TreeNode2(11, null, null);

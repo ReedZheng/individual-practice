@@ -32,6 +32,7 @@ public class MyEntity {
 
     @Override
     public String toString() {
-        return "MyEntity{" + "name='" + name + '\'' + ", phone='" + phone + '\'' + ", address='" + address + '\'' + '}';
+        return "MyEntity{" + "name='" + name + '\'' + ", phone='" + phone + '\'' + ", address='"
+            + address + '\'' + '}';
     }
 }

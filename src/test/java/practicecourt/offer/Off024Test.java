@@ -3,6 +3,7 @@ package practicecourt.offer;
 import org.junit.Test;
 
 public class Off024Test {
+
     int[] pushA = {};
     int[] popA = {};
 

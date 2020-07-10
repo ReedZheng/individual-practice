@@ -14,7 +14,7 @@ public class Test {
         BaseFactory baseFactory = new HaierFactory();
         baseFactory.createFridge();
         baseFactory.createAirConditioner();
-        ((HaierFactory)baseFactory).createTelevision();
+        ((HaierFactory) baseFactory).createTelevision();
 
         baseFactory = new MediaFactory();
         baseFactory.createFridge();
@@ -23,6 +23,6 @@ public class Test {
         baseFactory = new ThirdPartFactory();
         baseFactory.createFridge();
         baseFactory.createAirConditioner();
-        ((ThirdPartFactory)baseFactory).createTelevision();
+        ((ThirdPartFactory) baseFactory).createTelevision();
     }
 }

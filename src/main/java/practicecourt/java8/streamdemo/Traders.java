@@ -1,10 +1,11 @@
-package practicecourt.java8.Chapter5;
+package practicecourt.java8.streamdemo;
 
 /**
  * @Description:
  * @Date: 2018/12/6
  */
 public class Traders {
+
     private String name;
     private String city;
 

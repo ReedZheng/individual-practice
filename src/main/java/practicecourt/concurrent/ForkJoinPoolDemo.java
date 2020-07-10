@@ -9,6 +9,7 @@ import java.util.concurrent.RecursiveTask;
  * @Author: reed
  */
 public class ForkJoinPoolDemo {
+
     private static int THRESLOD = 10;//任务阈值
 
     public static void main(String[] args) throws Exception {
@@ -16,7 +17,7 @@ public class ForkJoinPoolDemo {
         ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();//创建他的线程池
 
         Future<Long> ft = forkJoinPool.submit(new MC(1,
-                100));//在线程池中进行计算
+            100));//在线程池中进行计算
 //
         System.out.println("计算的结果是：" + ft.get());
 
@@ -50,11 +51,11 @@ public class ForkJoinPoolDemo {
                 int mid = (end + begin) / 2;
 
                 MC left = new MC(begin,
-                        mid);//一部分小线程
+                    mid);//一部分小线程
                 left.fork();//开启这小部分线程
 
                 MC right = new MC(mid,
-                        end);
+                    end);
                 right.fork();
 
                 Long lr = right.join();//让right任务完整完成

@@ -6,6 +6,7 @@ import practicecourt.offer.assistant.ListNode;
  * 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
  */
 public class Off019 {
+
     public ListNode merge(ListNode list1, ListNode list2) {
         ListNode merged = new ListNode(0);
         ListNode header = merged;

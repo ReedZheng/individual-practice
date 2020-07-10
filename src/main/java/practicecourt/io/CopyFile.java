@@ -10,9 +10,12 @@ import java.nio.channels.FileChannel;
  * @Author: reed
  */
 public class CopyFile {
+
     public static void main(String[] args) throws Exception {
-        FileInputStream inputStream = new FileInputStream("F:\\a-learn\\reedzheng-learn-master\\learn\\README.md");
-        FileOutputStream outputStream = new FileOutputStream("F:\\a-learn\\reedzheng-learn-master\\learn\\README.bak.md");
+        FileInputStream inputStream = new FileInputStream(
+            "F:\\a-learn\\reedzheng-learn-master\\learn\\README.md");
+        FileOutputStream outputStream = new FileOutputStream(
+            "F:\\a-learn\\reedzheng-learn-master\\learn\\README.bak.md");
 
         FileChannel inputStreamChannel = inputStream.getChannel();
         FileChannel outputStreamChannel = outputStream.getChannel();

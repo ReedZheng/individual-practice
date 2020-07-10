@@ -5,6 +5,7 @@ package practicecourt.interviewquestion;
  * @Author: reed
  */
 public class LoadSequence {
+
     public static void main(String[] args) {
         Father bcb = new Child();
         bcb.msg();
@@ -12,6 +13,7 @@ public class LoadSequence {
 }
 
 class Child extends Father {
+
     static {
         System.out.println("这里是子类的静态代码块");
     }
@@ -62,12 +64,14 @@ class Father {
 }
 
 class Other {
+
     Other() {
         System.out.println("初始化子类的属性值");
     }
 }
 
 class Other2 {
+
     Other2() {
         System.out.println("初始化父类的属性值");
     }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TreeNode {
+
     private String val;
     private TreeNode left;
     private TreeNode right;

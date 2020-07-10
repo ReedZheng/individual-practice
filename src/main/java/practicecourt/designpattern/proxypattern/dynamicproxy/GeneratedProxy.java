@@ -17,7 +17,9 @@ public class GeneratedProxy implements InvocationHandler {
         if (consumer != null) {
             Class<? extends Consumer> consumerClass = consumer.getClass();
             generatedProxy =
-                (Consumer)Proxy.newProxyInstance(consumerClass.getClassLoader(), consumerClass.getInterfaces(), this);
+                (Consumer) Proxy
+                    .newProxyInstance(consumerClass.getClassLoader(), consumerClass.getInterfaces(),
+                        this);
         }
         return generatedProxy;
     }

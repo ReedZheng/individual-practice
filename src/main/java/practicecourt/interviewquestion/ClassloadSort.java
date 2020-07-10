@@ -17,12 +17,18 @@ public class ClassloadSort {
 }
 
 class Singleton {
+
+    public static int value1 = 5;
+    public static int value2 = 3;
+    private static Singleton singleton = new Singleton();
+
     static {
         System.out.println(Singleton.value1 + "\t" + Singleton.value2 + "\t" + Singleton.singleton);
     }
-    private static Singleton singleton = new Singleton();
-    public static int value1 = 5;
-    public static int value2 = 3;
+
+    {
+        System.out.println("count = " + value1);
+    }
 
     private Singleton() {
         value1++;
@@ -31,25 +37,23 @@ class Singleton {
         System.out.println("Singleton:value2 = " + value2);
     }
 
-    public static Singleton getInstance() {
-        return singleton;
-    }
-
     // int count = 10;
 
-    {
-        System.out.println("count = " + value1);
+    public static Singleton getInstance() {
+        return singleton;
     }
 }
 
 class Singleton2 {
-    static {
-        System.out.println(Singleton2.value1 + "\t" + Singleton2.value2 + "\t" + Singleton2.singleton2);
-    }
 
     public static int value1 = 5;
     public static int value2 = 3;
     private static Singleton2 singleton2 = new Singleton2();
+
+    static {
+        System.out
+            .println(Singleton2.value1 + "\t" + Singleton2.value2 + "\t" + Singleton2.singleton2);
+    }
 
     // int count = 20;
     {

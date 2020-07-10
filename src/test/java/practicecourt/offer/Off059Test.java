@@ -3,9 +3,8 @@ package practicecourt.offer;
 import org.junit.Test;
 import practicecourt.offer.assistant.ListNode;
 
-import java.util.HashMap;
-
 public class Off059Test {
+
     ListNode node1 = new ListNode(1);
     ListNode node2 = new ListNode(1);
     ListNode node3 = new ListNode(2);

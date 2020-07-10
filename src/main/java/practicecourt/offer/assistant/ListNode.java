@@ -8,8 +8,8 @@ import lombok.ToString;
  *
  */
 @Data
-@ToString(exclude="next")
-@EqualsAndHashCode(exclude="next")
+@ToString(exclude = "next")
+@EqualsAndHashCode(exclude = "next")
 public class ListNode {
 
     public Integer val;

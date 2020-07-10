@@ -1,9 +1,8 @@
 package practicecourt.designpattern.observepattern.push.subject;
 
-import practicecourt.designpattern.observepattern.push.observer.PushObserver;
-
 import java.util.ArrayList;
 import java.util.List;
+import practicecourt.designpattern.observepattern.push.observer.PushObserver;
 
 public abstract class Subject {
 

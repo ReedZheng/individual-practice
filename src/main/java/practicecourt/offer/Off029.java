@@ -1,15 +1,14 @@
 package practicecourt.offer;
 
+import java.util.Stack;
 import practicecourt.offer.assistant.TreeNode2;
 
-import java.util.Stack;
-
 /**
- * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。
- * 在二叉树的中序遍历基础上，对从栈中弹出的序列进行指针操作，实现双向链表。
+ * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。 在二叉树的中序遍历基础上，对从栈中弹出的序列进行指针操作，实现双向链表。
  * 牛客上更好的做法：Morris Traversal，将二叉树重构为所有结点只有右子树的一条链
  */
 public class Off029 {
+
     public TreeNode2 convert(TreeNode2 pRootOfTree) {
         TreeNode2 pre = null, current = null, head = null;
         Stack<TreeNode2> stack = new Stack<>();

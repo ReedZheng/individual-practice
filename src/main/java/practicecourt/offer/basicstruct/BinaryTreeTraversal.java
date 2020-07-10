@@ -1,11 +1,10 @@
 package practicecourt.offer.basicstruct;
 
-import practicecourt.offer.assistant.ExceptionHandler;
-import practicecourt.offer.assistant.TreeNode;
-
 import java.util.Optional;
 import java.util.Stack;
 import java.util.concurrent.LinkedBlockingQueue;
+import practicecourt.offer.assistant.ExceptionHandler;
+import practicecourt.offer.assistant.TreeNode;
 
 /**
  * 二叉树前中后序遍历，方式：1. 递归；2. 借助栈；3. Morris Traversal，参考 Off029
@@ -91,13 +90,16 @@ public class BinaryTreeTraversal {
             TreeNode takeNode = queue.take();
             System.out.print(takeNode.getVal() + " ");
             // 自定义 Consumer 函数接口
-            Optional.ofNullable(takeNode.getLeft()).ifPresent(ExceptionHandler.toConsumer(queue::put));
-            Optional.ofNullable(takeNode.getRight()).ifPresent(ExceptionHandler.toConsumer(queue::put));
+            Optional.ofNullable(takeNode.getLeft())
+                .ifPresent(ExceptionHandler.toConsumer(queue::put));
+            Optional.ofNullable(takeNode.getRight())
+                .ifPresent(ExceptionHandler.toConsumer(queue::put));
         }
     }
 
     /**
      * 递归实现
+     *
      * @param root
      */
     public void preTraversalUseRecursion(TreeNode root) {

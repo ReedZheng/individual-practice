@@ -11,6 +11,10 @@ public class Computer {
 
     ;
 
+    public static Computer getInstance() {
+        return new Computer();
+    }
+
     public void setMainEngine(String mainEngine) {
         this.mainEngine = mainEngine;
     }
@@ -25,11 +29,8 @@ public class Computer {
 
     @Override
     public String toString() {
-        return "Computer{" + "mainEngine='" + mainEngine + '\'' + ", displayer='" + displayer + '\'' + ", ioEquipment='"
+        return "Computer{" + "mainEngine='" + mainEngine + '\'' + ", displayer='" + displayer + '\''
+            + ", ioEquipment='"
             + ioEquipment + '\'' + '}';
-    }
-
-    public static Computer getInstance() {
-        return new Computer();
     }
 }

@@ -1,4 +1,4 @@
-package practicecourt.java8.Chapter5;
+package practicecourt.java8.streamdemo;
 
 import java.math.BigDecimal;
 
@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  * @Date: 2018/12/6
  */
 public class Transaction {
+
     private String transactionDate;
     private BigDecimal transactionAmount;
     private Traders traders;
@@ -43,7 +44,8 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" + "transactionDate=" + transactionDate + ", transactionAmount=" + transactionAmount
+        return "Transaction{" + "transactionDate=" + transactionDate + ", transactionAmount="
+            + transactionAmount
             + ", traders=" + traders + '}';
     }
 }

@@ -1,9 +1,8 @@
 package practicecourt.offer;
 
-import practicecourt.offer.assistant.ListNode;
-
 import java.util.ArrayList;
 import java.util.List;
+import practicecourt.offer.assistant.ListNode;
 
 /**
  * 输入两个链表，找出它们的第一个公共结点。
@@ -11,6 +10,7 @@ import java.util.List;
  * 如果存在共同节点的话，那么从该节点，两个链表之后的元素都是相同的！！！
  */
 public class Off039 {
+
     public ListNode findFirstCommonNode(ListNode pHead1, ListNode pHead2) {
         if (pHead1 == null || pHead2 == null) {
             return null;

@@ -4,6 +4,7 @@ import lombok.ToString;
 
 @ToString(exclude = {"left", "right", "next"})
 public class TreeLinkNode {
+
     public int val;
     public TreeLinkNode left = null;
     public TreeLinkNode right = null;

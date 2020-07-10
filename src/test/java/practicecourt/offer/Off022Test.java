@@ -1,13 +1,12 @@
 package practicecourt.offer;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
+import org.junit.Test;
 
 public class Off022Test {
 
     int[][] arrs =
-    {{1}, {2}, {3}, {4}, {5}};
+        {{1}, {2}, {3}, {4}, {5}};
     // {{1, 2, 3, 4, 5}};
     // {{2, 3, 6, 3}, {9, 0, 1, 2}};
     // {{1, 4, 7, 11, 15}, {2, 5, 8, 12, 20}, {7, 8, 9, 16, 22}};

@@ -33,6 +33,7 @@ public class ReadWriteLockDemo {
     }
 
     static class WriteTask implements Runnable {
+
         @Override
         public void run() {
             for (int i = 0; i < 5; i++) {
@@ -40,11 +41,13 @@ public class ReadWriteLockDemo {
                 try {
                     int index = (int) (Math.random() * 10);
                     arr[index] = (int) (Math.random() * 100);
-                    System.out.println("+持有写锁, 将 arr[" + index + "] 修改为 " + arr[index] + ", " + Thread.currentThread()
+                    System.out.println(
+                        "+持有写锁, 将 arr[" + index + "] 修改为 " + arr[index] + ", " + Thread
+                            .currentThread()
                             .getName());
                 } finally {
                     System.out.println("-写锁释放" + ", " + Thread.currentThread()
-                            .getName());
+                        .getName());
                     writeLock.unlock();
                 }
             }
@@ -52,17 +55,19 @@ public class ReadWriteLockDemo {
     }
 
     static class ReadTask implements Runnable {
+
         @Override
         public void run() {
             for (int i = 0; i < 5; i++) {
                 readLock.lock();
                 try {
                     int index = (int) (Math.random() * 10);
-                    System.out.println("+持有读锁，下标 " + index + "，值 " + arr[index] + ", " + Thread.currentThread()
+                    System.out.println(
+                        "+持有读锁，下标 " + index + "，值 " + arr[index] + ", " + Thread.currentThread()
                             .getName());
                 } finally {
                     System.out.println("-读锁释放" + ", " + Thread.currentThread()
-                            .getName());
+                        .getName());
                     readLock.unlock();
                 }
             }
@@ -70,6 +75,7 @@ public class ReadWriteLockDemo {
     }
 
     static class UPTask implements Runnable {
+
         @Override
         public void run() {
             readLock.lock();
@@ -84,6 +90,7 @@ public class ReadWriteLockDemo {
     }
 
     static class DOWNTask implements Runnable { // 锁降级
+
         @Override
         public void run() {
             readLock.lock();
@@ -104,6 +111,7 @@ public class ReadWriteLockDemo {
     }
 
     static class DOWNTaskTest implements Runnable {
+
         @Override
         public void run() {
             for (int i = 0; i < 20; i++) {

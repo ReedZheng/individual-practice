@@ -1,30 +1,26 @@
 package practicecourt.leet;
 
 /**
- * Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+ * Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same
+ * backward as forward.
  * <p>
  * Example 1:
  * <p>
- * Input: 121
- * Output: true
- * Example 2:
+ * Input: 121 Output: true Example 2:
  * <p>
- * Input: -121
- * Output: false
- * Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
- * Example 3:
+ * Input: -121 Output: false Explanation: From left to right, it reads -121. From right to left, it
+ * becomes 121-. Therefore it is not a palindrome. Example 3:
  * <p>
- * Input: 10
- * Output: false
- * Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+ * Input: 10 Output: false Explanation: Reads 01 from right to left. Therefore it is not a
+ * palindrome.
  */
 public class PalindromeNumber {
 
     /**
-     * Second idea would be reverting the number itself, and then compare the number with original number,
-     * if they are the same, then the number is a palindrome. However, if the reversed number is larger than
-     * int.MAX, we will hit integer overflow problem.
-     * 这种写法当 x 为 Integer.MAX_VALUE 时会出现反转的数溢出！！
+     * Second idea would be reverting the number itself, and then compare the number with original
+     * number, if they are the same, then the number is a palindrome. However, if the reversed
+     * number is larger than int.MAX, we will hit integer overflow problem. 这种写法当 x 为
+     * Integer.MAX_VALUE 时会出现反转的数溢出！！
      *
      * @param x
      * @return

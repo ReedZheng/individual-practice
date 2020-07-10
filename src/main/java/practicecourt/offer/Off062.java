@@ -1,18 +1,17 @@
 package practicecourt.offer;
 
-import practicecourt.offer.assistant.TreeNode2;
-
 import java.util.ArrayList;
 import java.util.Stack;
 import java.util.concurrent.LinkedBlockingQueue;
+import practicecourt.offer.assistant.TreeNode2;
 
 /**
- * 请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，
- * 第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+ * 请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印， 第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
  * <p>
  * 总觉得可以改进一下。。看着觉得好辣鸡
  */
 public class Off062 {
+
     public ArrayList<ArrayList<Integer>> print(TreeNode2 pRoot) throws Exception {
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
         if (pRoot == null) {

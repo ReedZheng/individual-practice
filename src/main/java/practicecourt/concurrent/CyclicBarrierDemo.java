@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  *
  */
-public class CyclicBarrierSample {
+public class CyclicBarrierDemo {
 
     public static void main(String[] args) {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(4, () -> {
@@ -33,21 +33,23 @@ class PartOfCalculation implements Runnable {
 
     @Override
     public void run() {
-        long sleepTime = (long)(Math.random() * 10000);
+        long sleepTime = (long) (Math.random() * 10000);
         System.out.println(Thread.currentThread().getName() + "正在计算步骤 1");
         try {
             Thread.sleep(sleepTime);
-            System.out.println(Thread.currentThread().getName() + "步骤 1 计算完成，耗时: " + sleepTime + " ms");
+            System.out
+                .println(Thread.currentThread().getName() + "步骤 1 计算完成，耗时: " + sleepTime + " ms");
             cyclicBarrier.await();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        sleepTime = (long)(Math.random() * 10000);
+        sleepTime = (long) (Math.random() * 10000);
         System.out.println(Thread.currentThread().getName() + "正在计算步骤 2");
         try {
             Thread.sleep(sleepTime);
-            System.out.println(Thread.currentThread().getName() + "步骤 2 计算完成，耗时: " + sleepTime + " ms");
+            System.out
+                .println(Thread.currentThread().getName() + "步骤 2 计算完成，耗时: " + sleepTime + " ms");
             cyclicBarrier.await();
         } catch (Exception e) {
             e.printStackTrace();

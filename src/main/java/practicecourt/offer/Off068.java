@@ -1,14 +1,12 @@
 package practicecourt.offer;
 
 /**
- * 请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。
- * 路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。
- * 如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。
- * 例如 a b c e s f c s a d e e 矩阵中包含一条字符串"bccced"的路径，
- * 但是矩阵中不包含"abcb"路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，
- * 路径不能再次进入该格子。
+ * 请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。 路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。
+ * 如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。 例如 a b c e s f c s a d e e 矩阵中包含一条字符串"bccced"的路径，
+ * 但是矩阵中不包含"abcb"路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后， 路径不能再次进入该格子。
  */
 public class Off068 {
+
     public boolean hasPath(char[] matrix, int rows, int cols, char[] str) {
         int mLength = matrix.length;
         if (mLength <= 0 || str.length <= 0 || rows * cols != mLength) {
@@ -30,17 +28,15 @@ public class Off068 {
     }
 
     /**
-     * i - 列数   往上走
-     * i + 1     往右走
-     * i + 列数   往下走
-     * i - 1     往左走
+     * i - 列数   往上走 i + 1     往右走 i + 列数   往下走 i - 1     往左走
      *
      * @param matrix
      * @param mIndex
      * @param str
      * @param sIndex
      */
-    private boolean dfs(char[] matrix, int mIndex, char[] str, int sIndex, int cols, boolean[] arr) {
+    private boolean dfs(char[] matrix, int mIndex, char[] str, int sIndex, int cols,
+        boolean[] arr) {
         boolean result = false;
 
         // 如果不相等则回到上一步

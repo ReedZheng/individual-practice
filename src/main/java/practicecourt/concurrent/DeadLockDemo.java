@@ -3,7 +3,7 @@ package practicecourt.concurrent;
 /**
  * 死锁示例
  */
-public class DeadLockSample {
+public class DeadLockDemo {
 
     public static void main(String[] args) {
         Object o1 = new Object();

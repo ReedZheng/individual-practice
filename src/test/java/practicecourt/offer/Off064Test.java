@@ -1,11 +1,12 @@
 package practicecourt.offer;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import practicecourt.offer.assistant.TreeNode2;
 
-import static org.junit.Assert.*;
-
 public class Off064Test {
+
     TreeNode2 node8 = new TreeNode2(29, null, null);
     TreeNode2 node7 = new TreeNode2(28, null, node8);
     TreeNode2 node6 = new TreeNode2(30, node7, null);

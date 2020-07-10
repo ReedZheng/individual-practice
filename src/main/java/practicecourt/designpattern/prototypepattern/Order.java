@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public interface Order {
 
-    void setTotalAmount(BigDecimal totalAmount);
-
     BigDecimal getTotalAmount();
+
+    void setTotalAmount(BigDecimal totalAmount);
 
     Produce getProduce();
 

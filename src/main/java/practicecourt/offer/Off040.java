@@ -1,10 +1,10 @@
 package practicecourt.offer;
 
 /**
- * 统计一个数字在排序数组中出现的次数。
- * 二分法
+ * 统计一个数字在排序数组中出现的次数。 二分法
  */
 public class Off040 {
+
     public int getNumberOfK(int[] array, int k) {
         if (array.length == 0) {
             return 0;

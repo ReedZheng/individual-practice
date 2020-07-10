@@ -13,13 +13,13 @@ public class EnterpriseOrder implements Order, Cloneable {
     }
 
     @Override
-    public void setTotalAmount(BigDecimal totalAmount) {
-        this.totalAmount = totalAmount;
+    public BigDecimal getTotalAmount() {
+        return this.totalAmount;
     }
 
     @Override
-    public BigDecimal getTotalAmount() {
-        return this.totalAmount;
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
     }
 
     @Override
@@ -38,8 +38,8 @@ public class EnterpriseOrder implements Order, Cloneable {
             //            浅复制
             //            return (EnterpriseOrder) super.clone();
             // 深复制
-            EnterpriseOrder newOne = (EnterpriseOrder)super.clone();
-            newOne.setProduce((Produce)produce.clone());
+            EnterpriseOrder newOne = (EnterpriseOrder) super.clone();
+            newOne.setProduce((Produce) produce.clone());
             return newOne;
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();

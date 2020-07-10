@@ -14,7 +14,8 @@ public class BaseAssembler {
         List<MyDTO> targetList = new ArrayList<>();
 
         if (myEntityList != null && myEntityList.size() > 0) {
-            targetList = myEntityList.stream().map(i -> myCallBack.toDTO(i)).collect(Collectors.toList());
+            targetList = myEntityList.stream().map(i -> myCallBack.toDTO(i))
+                .collect(Collectors.toList());
         }
 
         return targetList;

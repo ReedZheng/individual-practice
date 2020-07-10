@@ -6,12 +6,11 @@ import java.util.List;
 public abstract class Component {
 
     protected String name = "";
+    protected List<Component> leaves = new ArrayList<>();
 
     public Component(String name) {
         this.name = name;
     }
-
-    protected List<Component> leaves = new ArrayList<>();
 
     public abstract void add(Leaf leaf);
 

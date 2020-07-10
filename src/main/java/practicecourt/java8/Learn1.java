@@ -1,10 +1,15 @@
 package practicecourt.java8;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Learn1 {
+
     public static void main(String[] args) {
         Food food1 = new Food(111, "aaaa", "001");
         Food food2 = new Food(22, "bb", "004");
@@ -18,13 +23,15 @@ public class Learn1 {
         list.add(food4);
         list.add(food5);
 
-        List<String> filterAndSortedList = list.parallelStream().filter(item -> item.getCalories() > 50)
+        List<String> filterAndSortedList = list.parallelStream()
+            .filter(item -> item.getCalories() > 50)
             .sorted(Comparator.comparing(Food::getCalories).reversed()).map(item -> item.getName())
             .collect(Collectors.toList());
 
         System.out.println(filterAndSortedList);
 
-        Map<String, List<Food>> groupByFoodGroupCode = list.stream().collect(Collectors.groupingBy(Food::getGroupCode));
+        Map<String, List<Food>> groupByFoodGroupCode = list.stream()
+            .collect(Collectors.groupingBy(Food::getGroupCode));
         System.out.println(groupByFoodGroupCode);
 
         Stream<Food> stream = list.stream();
@@ -33,14 +40,16 @@ public class Learn1 {
         // stream.map(item -> item.getName()).forEach(System.out::println);
 
         Stream<Food> stream1 = list.stream();
-        List<Integer> lengthList = stream1.map(item -> item.getName()).map(String::length).collect(Collectors.toList());
+        List<Integer> lengthList = stream1.map(item -> item.getName()).map(String::length)
+            .collect(Collectors.toList());
         System.out.println(lengthList);
 
         List<String> strs = new ArrayList();
         strs.add("Hello");
         strs.add("World");
         List<String> wordList =
-            strs.stream().map(item -> item.split("")).flatMap(Arrays::stream).distinct().collect(Collectors.toList());
+            strs.stream().map(item -> item.split("")).flatMap(Arrays::stream).distinct()
+                .collect(Collectors.toList());
         System.out.println(wordList);
 
         List<Integer> integerList = new ArrayList<>();
@@ -50,13 +59,15 @@ public class Learn1 {
         integerList.add(10);
         integerList.add(11);
 
-        List<Integer> squareList = integerList.stream().map(item -> item * item).collect(Collectors.toList());
+        List<Integer> squareList = integerList.stream().map(item -> item * item)
+            .collect(Collectors.toList());
         System.out.println(squareList);
 
     }
 }
 
 class Food {
+
     private Integer Calories;
     private String name;
     private String groupCode;
@@ -93,6 +104,7 @@ class Food {
 
     @Override
     public String toString() {
-        return "Food{" + "Calories=" + Calories + ", name='" + name + '\'' + ", groupCode='" + groupCode + '\'' + '}';
+        return "Food{" + "Calories=" + Calories + ", name='" + name + '\'' + ", groupCode='"
+            + groupCode + '\'' + '}';
     }
 }

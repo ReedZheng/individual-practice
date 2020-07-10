@@ -1,11 +1,16 @@
-package practicecourt.io.bigFileRead;
+package practicecourt.io.bigfileread;
 
 /**
  * @Description:
  * @Author: reed
  */
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.io.UnsupportedEncodingException;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel.MapMode;
 import java.util.HashSet;
@@ -16,6 +21,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class BigFileReader {
+
     private int threadSize;
     private String charset;
     private int bufferSize;
@@ -27,7 +33,8 @@ public class BigFileReader {
     private CyclicBarrier cyclicBarrier;
     private AtomicLong counter = new AtomicLong(0);
 
-    private BigFileReader(File file, IHandle handle, String charset, int bufferSize, int threadSize) {
+    private BigFileReader(File file, IHandle handle, String charset, int bufferSize,
+        int threadSize) {
         this.fileLength = file.length();
         this.handle = handle;
         this.charset = charset;
@@ -35,7 +42,7 @@ public class BigFileReader {
         this.threadSize = threadSize;
         try {
             this.rAccessFile = new RandomAccessFile(file,
-                    "r");
+                "r");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -47,7 +54,7 @@ public class BigFileReader {
         long everySize = this.fileLength / this.threadSize;
         try {
             calculateStartEnd(0,
-                    everySize);
+                everySize);
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -55,14 +62,15 @@ public class BigFileReader {
 
         final long startTime = System.currentTimeMillis();
         cyclicBarrier = new CyclicBarrier(startEndPairs.size(),
-                new Runnable() {
-                    // 全部线程执行完成后执行run
-                    @Override
-                    public void run() {
-                        System.out.println("use time: " + (System.currentTimeMillis() - startTime) + " 毫秒");
-                        System.out.println("all line: " + counter.get() + " 行");
-                    }
-                });
+            new Runnable() {
+                // 全部线程执行完成后执行run
+                @Override
+                public void run() {
+                    System.out
+                        .println("use time: " + (System.currentTimeMillis() - startTime) + " 毫秒");
+                    System.out.println("all line: " + counter.get() + " 行");
+                }
+            });
         for (StartEndPair pair : startEndPairs) {
             System.out.println("分配分片: " + pair);
             this.executorService.execute(new SliceReaderTask(pair));
@@ -99,7 +107,7 @@ public class BigFileReader {
         startEndPairs.add(pair);
 
         calculateStartEnd(endPosition + 1,
-                size);
+            size);
     }
 
     public void shutdown() {
@@ -117,7 +125,7 @@ public class BigFileReader {
             line = new String(bytes);
         } else {
             line = new String(bytes,
-                    charset);
+                charset);
         }
         if (!"".equals(line)) {
             this.handle.handle(line);
@@ -126,6 +134,7 @@ public class BigFileReader {
     }
 
     private static class StartEndPair {
+
         public long start;
         public long end;
 
@@ -145,23 +154,29 @@ public class BigFileReader {
 
         @Override
         public boolean equals(Object obj) {
-            if (this == obj)
+            if (this == obj) {
                 return true;
-            if (obj == null)
+            }
+            if (obj == null) {
                 return false;
-            if (getClass() != obj.getClass())
+            }
+            if (getClass() != obj.getClass()) {
                 return false;
+            }
             StartEndPair other = (StartEndPair) obj;
-            if (end != other.end)
+            if (end != other.end) {
                 return false;
-            if (start != other.start)
+            }
+            if (start != other.start) {
                 return false;
+            }
             return true;
         }
 
     }
 
     public static class Builder {
+
         private int threadSize = 1;
         private String charset = null;
         private int bufferSize = 1024 * 1024;
@@ -170,8 +185,9 @@ public class BigFileReader {
 
         public Builder(String file, IHandle handle) {
             this.file = new File(file);
-            if (!this.file.exists())
+            if (!this.file.exists()) {
                 throw new IllegalArgumentException("文件不存在！");
+            }
             this.handle = handle;
         }
 
@@ -192,14 +208,15 @@ public class BigFileReader {
 
         public BigFileReader build() {
             return new BigFileReader(this.file,
-                    this.handle,
-                    this.charset,
-                    this.bufferSize,
-                    this.threadSize);
+                this.handle,
+                this.charset,
+                this.bufferSize,
+                this.threadSize);
         }
     }
 
     private class SliceReaderTask implements Runnable {
+
         private long start;
         private long sliceSize;
         private byte[] readBuff;
@@ -216,9 +233,9 @@ public class BigFileReader {
         public void run() {
             try {
                 MappedByteBuffer mapBuffer = rAccessFile.getChannel()
-                        .map(MapMode.READ_ONLY,
-                                start,
-                                this.sliceSize);
+                    .map(MapMode.READ_ONLY,
+                        start,
+                        this.sliceSize);
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 for (int offset = 0; offset < sliceSize; offset += bufferSize) {
                     int readLength;
@@ -228,8 +245,8 @@ public class BigFileReader {
                         readLength = (int) (sliceSize - offset);
                     }
                     mapBuffer.get(readBuff,
-                            0,
-                            readLength);
+                        0,
+                        readLength);
                     for (int i = 0; i < readLength; i++) {
                         byte tmp = readBuff[i];
                         if (tmp == '\n' || tmp == '\r') {

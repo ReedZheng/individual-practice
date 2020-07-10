@@ -1,10 +1,11 @@
-package practicecourt.java8.Chapter6;
+package practicecourt.java8.mapdemo;
 
 /**
  * @Description:
  * @Date: 2018/12/6
  */
 public class Transaction {
+
     private String transactionAddr;
     private Currency amount;
     private Boolean isSuccess;
@@ -41,7 +42,8 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" + "transactionAddr='" + transactionAddr + '\'' + ", amount=" + amount + ", isSuccess="
+        return "Transaction{" + "transactionAddr='" + transactionAddr + '\'' + ", amount=" + amount
+            + ", isSuccess="
             + isSuccess + '}';
     }
 }

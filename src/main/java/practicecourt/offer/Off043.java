@@ -6,10 +6,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * 一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。
- * num1,num2分别为长度为1的数组。传出参数将num1[0],num2[0]设置为返回结果
+ * 一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。 num1,num2分别为长度为1的数组。传出参数将num1[0],num2[0]设置为返回结果
  */
 public class Off043 {
+
     public void findNumsAppearOnce(int[] array, int[] num1, int[] num2) {
         if (array.length < 1) {
             return;
@@ -25,7 +25,8 @@ public class Off043 {
             }
         }
 
-        List<Integer> list = map.entrySet().stream().filter(item -> item.getValue() == 0).map(Map.Entry::getKey)
+        List<Integer> list = map.entrySet().stream().filter(item -> item.getValue() == 0)
+            .map(Map.Entry::getKey)
             .collect(Collectors.toList());
         if (list.size() == 2) {
             num1[0] = list.get(0);
@@ -34,12 +35,9 @@ public class Off043 {
     }
 
     /**
-     * 1、异或思想，一个数与自己异或为0，一个数与0异或为自己
-     * 2、由于其它数字两两相同，所以所有数异或则得到这两个不同数的异或结果。取这个结果的第一个1作为标志位
-     * 3、这个标志的1，必须是：这两个数在该位一个为0，一个为1
-     * 4、这样可以将数组分为两组，一组在该标志位为1，一组在该标志位为0，这两个不同数字分别在这两组内
-     * 5、将两组内的数分别异或，得到两个结果则为这两个不同的数
-     * 看不懂。。
+     * 1、异或思想，一个数与自己异或为0，一个数与0异或为自己 2、由于其它数字两两相同，所以所有数异或则得到这两个不同数的异或结果。取这个结果的第一个1作为标志位
+     * 3、这个标志的1，必须是：这两个数在该位一个为0，一个为1 4、这样可以将数组分为两组，一组在该标志位为1，一组在该标志位为0，这两个不同数字分别在这两组内
+     * 5、将两组内的数分别异或，得到两个结果则为这两个不同的数 看不懂。。
      *
      * @param array
      * @param num1

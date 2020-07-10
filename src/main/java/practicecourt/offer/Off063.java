@@ -1,16 +1,16 @@
 package practicecourt.offer;
 
-import practicecourt.offer.assistant.TreeNode2;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
+import practicecourt.offer.assistant.TreeNode2;
 
 /**
  * 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
  */
 public class Off063 {
+
     ArrayList<ArrayList<Integer>> print(TreeNode2 pRoot) throws Exception {
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
         if (pRoot == null) {
@@ -99,6 +99,7 @@ public class Off063 {
 
     /**
      * 改进
+     *
      * @param pRoot
      * @return
      * @throws Exception

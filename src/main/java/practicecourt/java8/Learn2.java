@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
  * @Date: 2018/12/5
  */
 public class Learn2 {
+
     public static void main(String[] args) {
         List<Integer> integerList1 = new ArrayList<>();
         integerList1.add(1);
@@ -24,7 +25,8 @@ public class Learn2 {
         integerList2.add(2);
 
         // flatMap()让一个流中的每个值都变成另一个流
-        List<int[]> collect = integerList1.stream().flatMap(i -> integerList2.stream().map(j -> new int[] {i, j}))
+        List<int[]> collect = integerList1.stream()
+            .flatMap(i -> integerList2.stream().map(j -> new int[]{i, j}))
             .filter(item -> item[0] * item[1] % 3 == 0).collect(Collectors.toList());
         for (int[] a : collect) {
             System.out.print("(" + a[0] + ", " + a[1] + ") ");
