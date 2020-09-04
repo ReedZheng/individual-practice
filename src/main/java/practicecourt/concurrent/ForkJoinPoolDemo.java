@@ -10,17 +10,17 @@ import java.util.concurrent.RecursiveTask;
  */
 public class ForkJoinPoolDemo {
 
-    private static int THRESLOD = 10;//任务阈值
+    // 任务阈值
+    private static int THRESLOD = 10;
 
     public static void main(String[] args) throws Exception {
-
-        ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();//创建他的线程池
-
+        // 创建他的线程池
+        ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
+        // 在线程池中进行计算
         Future<Long> ft = forkJoinPool.submit(new MC(1,
-            100));//在线程池中进行计算
-//
-        System.out.println("计算的结果是：" + ft.get());
+            100));
 
+        System.out.println("计算的结果是：" + ft.get());
     }
 
     /**
@@ -37,32 +37,35 @@ public class ForkJoinPoolDemo {
             this.end = end;
         }
 
-        //表示这个任务完成后，返回的一个值
+        // 表示这个任务完成后，返回的一个值
         @Override
         protected Long compute() {
 
-            //如果任务量小于阈值，就直接计算
+            // 如果任务量小于阈值，就直接计算
             if ((end - begin) <= THRESLOD) {
                 for (int i = begin; i < end; i++) {
                     sum += i;
                 }
-            } else {//如果大于1000， 就把他拆分成两个子任务进行fork
-
+            } else {
+                // 如果大于1000， 就把他拆分成两个子任务进行fork
                 int mid = (end + begin) / 2;
-
+                // 一部分小线程
                 MC left = new MC(begin,
-                    mid);//一部分小线程
-                left.fork();//开启这小部分线程
+                    mid);
+                // 开启这小部分线程
+                left.fork();
 
                 MC right = new MC(mid,
                     end);
                 right.fork();
-
-                Long lr = right.join();//让right任务完整完成
-                Long li = left.join();//让left任务完整完成
+                // 让right任务完整完成
+                Long lr = right.join();
+                // 让right任务完整完成
+                Long li = left.join();
                 sum = li + lr;
             }
             return sum;
         }
     }
+
 }

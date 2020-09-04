@@ -101,10 +101,4 @@ class Food {
     public void setCalories(Integer calories) {
         Calories = calories;
     }
-
-    @Override
-    public String toString() {
-        return "Food{" + "Calories=" + Calories + ", name='" + name + '\'' + ", groupCode='"
-            + groupCode + '\'' + '}';
-    }
 }
